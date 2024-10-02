@@ -80,7 +80,7 @@ const NavbarComponent = () => {
           className="border-none bg-transparent text-2xl cursor-pointer lg:hidden"
           onClick={toggleSidebar}
         >
-          <HiBars3 className="text-[#0E7AC5] text-4xl" />
+          <HiBars3 className="text-primary text-4xl" />
         </Navbar.Toggle>
         <Navbar.Collapse
           id="basic-navbar-nav"
@@ -102,8 +102,8 @@ const NavbarComponent = () => {
                 key={link}
                 href={`#${link}`}
                 onClick={() => handleLinkClick(link)}
-                className={`text-black tracking-wide text-[0.9rem] px-1 font-medium hover:text-[#0E7AC5] ${
-                  activeLink === link ? "border-b-2 border-b-[#0E7AC5]" : ""
+                className={`text-black tracking-wide text-[0.9rem] px-1 font-medium hover:text-primary ${
+                  activeLink === link ? "border-b-2 border-b-primary" : ""
                 }`}
               >
                 {link
@@ -114,7 +114,7 @@ const NavbarComponent = () => {
             ))}
             <Button
               variant="outline-primary"
-              className="m-0 border-2 rounded-sm tracking-wide border-[#0E7AC5] text-[#0E7AC5] px-4 py-2 text-[0.9rem] font-normal hover:bg-[#106CC5] hover:text-white"
+              className="m-0 border-2 rounded-sm tracking-wide border-primary text-primary px-4 py-2 text-[0.9rem] font-normal hover:bg-[#106CC5] hover:text-white"
             >
               Sign Up—It’s Free!
             </Button>
@@ -122,7 +122,7 @@ const NavbarComponent = () => {
           <div className="relative">
             <Button
               onClick={toggleDropdown}
-              className="m-0 border-2 rounded-sm flex tracking-wide items-center justify-center border-[#0E7AC5] text-[#0E7AC5] px-4 py-2 text-[0.9rem] font-semibold hover:bg-[#106CC5] hover:text-white"
+              className="m-0 border-2 rounded-sm flex tracking-wide items-center justify-center border-primary text-primary px-4 py-2 text-[0.9rem] font-semibold hover:bg-[#106CC5] hover:text-white"
             >
               <CiGlobe className="mr-2 flex items-center font-extrabold text-xl" />
               <span>EN</span>
@@ -144,7 +144,7 @@ const NavbarComponent = () => {
                     <li key={index}>
                       <a
                         href={`#${language.toLowerCase().replace(/ /g, "-")}`}
-                        className="block px-4 py-1 text-[#0E7AC5] font-light hover:bg-gray-100"
+                        className="block px-4 py-1 text-primary font-light hover:bg-gray-100"
                       >
                         {language}
                       </a>
@@ -177,7 +177,7 @@ const NavbarComponent = () => {
           className="absolute top-3 right-3 text-3xl cursor-pointer"
           onClick={toggleSidebar}
         >
-          <IoIosClose className="text-[#0E7AC5] text-5xl" />
+          <IoIosClose className="text-primary text-5xl" />
         </button>
         <Nav className="flex flex-col space-y-4 mt-12">
           {["tripit", "pro", "how-it-works", "pricing", "sap-concur"].map(
@@ -186,9 +186,9 @@ const NavbarComponent = () => {
                 key={index}
                 href={`#${link}`}
                 onClick={() => handleLinkClick(link)}
-                className={`text-black text-lg tracking-wide font-medium hover:text-[#0E7AC5] ${
+                className={`text-black text-lg tracking-wide font-medium hover:text-primary ${
                   activeLink === link
-                    ? "underline underline-offset-8 decoration-[#0E7AC5] decoration-5"
+                    ? "underline underline-offset-8 decoration-primary decoration-5"
                     : ""
                 }`}
               >
@@ -202,14 +202,14 @@ const NavbarComponent = () => {
           {/* Rest of the sidebar content */}
           <Button
             variant="primary"
-            className="mt-4 rounded-sm bg-white text-[#0E7AC5] border-2 border-[#0E7AC5] px-4 py-2 text-lg tracking-wide font-medium"
+            className="mt-4 rounded-sm bg-white text-primary border-2 border-primary px-4 py-2 text-lg tracking-wide font-medium"
             onClick={() => handleLinkClick("sign-in")}
           >
             Sign In
           </Button>
           <Button
             variant="primary"
-            className="mt-4 rounded-sm bg-[#0E7AC5] text-white px-4 py-3 text-lg tracking-wide font-medium hover:bg-[#106CC5]"
+            className="mt-4 rounded-sm bg-primary text-white px-4 py-3 text-lg tracking-wide font-medium hover:bg-[#106CC5]"
             onClick={toggleSidebar}
           >
             Sign Up—It’s Free!
@@ -217,7 +217,7 @@ const NavbarComponent = () => {
           <div className="relative mt-4">
             <Button
               onClick={toggleDropdown}
-              className="m-0 border-2 rounded-sm flex tracking-wide items-center justify-between border-[#0E7AC5] text-[#0E7AC5] px-2 py-2 text-[0.9rem] font-semibold hover:bg-[#106CC5] hover:text-white"
+              className="m-0 border-2 rounded-sm flex tracking-wide items-center justify-between border-primary text-primary px-2 py-2 text-[0.9rem] font-semibold hover:bg-[#106CC5] hover:text-white"
             >
               <CiGlobe className="mr-2 flex items-center font-extrabold text-xl" />
               <span>EN</span>
@@ -239,7 +239,7 @@ const NavbarComponent = () => {
                     <li key={index}>
                       <a
                         href={`#${language.toLowerCase().replace(/ /g, "-")}`}
-                        className="block px-4 py-1 text-[#0E7AC5] font-light hover:bg-gray-100"
+                        className="block px-4 py-1 text-primary font-light hover:bg-gray-100"
                       >
                         {language}
                       </a>
@@ -251,16 +251,16 @@ const NavbarComponent = () => {
           </div>
 
           <div className="flex justify-between w-10/12 pt-12">
-            <Nav.Link className="text-2xl hover:text-[#0E7AC5]">
+            <Nav.Link className="text-2xl hover:text-primary">
               <FaInstagram />
             </Nav.Link>
-            <Nav.Link className="text-2xl hover:text-[#0E7AC5]">
+            <Nav.Link className="text-2xl hover:text-primary">
               <FaFacebook />
             </Nav.Link>
-            <Nav.Link className="text-2xl hover:text-[#0E7AC5]">
+            <Nav.Link className="text-2xl hover:text-primary">
               <FaLinkedinIn />
             </Nav.Link>
-            <Nav.Link className="text-2xl hover:text-[#0E7AC5]">
+            <Nav.Link className="text-2xl hover:text-primary">
               <FaYoutube />
             </Nav.Link>
           </div>

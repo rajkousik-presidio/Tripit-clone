@@ -81,7 +81,7 @@ const BlogComponent = () => {
             key={index}
             onClick={() => handleDotClick(index)}
             className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              currentIndex === index ? "bg-[#0E7AC5]" : "bg-gray-400"
+              currentIndex === index ? "bg-primary" : "bg-gray-400"
             }`}
           />
         ))}

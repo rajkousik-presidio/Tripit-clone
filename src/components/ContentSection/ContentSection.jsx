@@ -24,7 +24,7 @@ const ContentSection = ({
         {link && (
           <a
             href="#"
-            className="text-[#0E7AC5] font-medium underline mb-8 block underline-offset-4 decoration-[#0E7AC5] hover:text-black"
+            className="text-primary font-medium underline mb-8 block underline-offset-4 decoration-primary hover:text-black"
           >
             {link}
           </a>

@@ -10,7 +10,7 @@ const CallToActionSection = () => {
         So many trips, so little time. Let TripIt worry about the details, so
         you don't have to.
       </p>
-      <button className="bg-[#0E7AC5] text-white px-12 py-3 rounded-sm text-lg font-medium hover:bg-[#0E74C5] transition-all duration-300">
+      <button className="bg-primary text-white px-12 py-3 rounded-sm text-lg font-medium hover:bg-[#0E74C5] transition-all duration-300">
         Sign Up—It's Free!
       </button>
     </div>

@@ -57,7 +57,7 @@ const Footer = () => {
               onClick={() => toggleSection("products")}
             >
               <h3 className="font-medium text-base">Products</h3>
-              <span className="md:hidden text-[#0E7AC5]">
+              <span className="md:hidden text-primary">
                 {openSection === "products" ? (
                   <RiArrowDropUpLine size={24} />
                 ) : (
@@ -77,7 +77,7 @@ const Footer = () => {
                   <li key={index} className="mb-0.5">
                     <a
                       href="#"
-                      className="text-black text-[15px] font-light hover:text-[#0E7AC5] transition-all duration-300"
+                      className="text-black text-[15px] font-light hover:text-primary transition-all duration-300"
                     >
                       {link}
                     </a>
@@ -94,7 +94,7 @@ const Footer = () => {
               onClick={() => toggleSection("resources")}
             >
               <h3 className="font-medium text-base">News & Resources</h3>
-              <span className="md:hidden text-[#0E7AC5]">
+              <span className="md:hidden text-primary">
                 {openSection === "resources" ? (
                   <RiArrowDropUpLine size={24} />
                 ) : (
@@ -122,7 +122,7 @@ const Footer = () => {
                 <li key={index} className="mb-0.5">
                   <a
                     href="#"
-                    className="text-black text-[15px] font-light hover:text-[#0E7AC5] transition-all duration-300"
+                    className="text-black text-[15px] font-light hover:text-primary transition-all duration-300"
                   >
                     {link}
                   </a>
@@ -138,7 +138,7 @@ const Footer = () => {
               onClick={() => toggleSection("partners")}
             >
               <h3 className="font-medium text-base">Partners</h3>
-              <span className="md:hidden text-[#0E7AC5]">
+              <span className="md:hidden text-primary">
                 {openSection === "partners" ? (
                   <RiArrowDropUpLine size={24} />
                 ) : (
@@ -156,7 +156,7 @@ const Footer = () => {
               <li className="mb-0.5">
                 <a
                   href="#"
-                  className="text-black text-[15px] font-light hover:text-[#0E7AC5] transition-all duration-300"
+                  className="text-black text-[15px] font-light hover:text-primary transition-all duration-300"
                 >
                   Supported Booking Sites
                 </a>
@@ -172,31 +172,31 @@ const Footer = () => {
         <div className="flex justify-center mb-8 space-x-8 text-xl text-gray-600">
           <a
             href="#"
-            className="hover:text-[#0E7AC5] transition-all duration-300"
+            className="hover:text-primary transition-all duration-300"
           >
             <FaInstagram />
           </a>
           <a
             href="#"
-            className="hover:text-[#0E7AC5] transition-all duration-300"
+            className="hover:text-primary transition-all duration-300"
           >
             <FaFacebookF />
           </a>
           <a
             href="#"
-            className="hover:text-[#0E7AC5] transition-all duration-300"
+            className="hover:text-primary transition-all duration-300"
           >
             <FaXTwitter />
           </a>
           <a
             href="#"
-            className="hover:text-[#0E7AC5] transition-all duration-300"
+            className="hover:text-primary transition-all duration-300"
           >
             <FaLinkedinIn />
           </a>
           <a
             href="#"
-            className="hover:text-[#0E7AC5] transition-all duration-300"
+            className="hover:text-primary transition-all duration-300"
           >
             <FaYoutube />
           </a>

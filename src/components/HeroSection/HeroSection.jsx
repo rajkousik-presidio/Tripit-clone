@@ -1,6 +1,6 @@
 import React from "react";
 
-const FirstSection = ({ image, title, description, buttonLabel }) => {
+const HeroSection = ({ image, title, description, buttonLabel }) => {
   return (
     <div className="relative w-full lg:h-[calc(100vh-100px)] h-[526px]">
       <div className="absolute inset-0 w-full h-[100%] lg:block hidden">
@@ -23,7 +23,7 @@ const FirstSection = ({ image, title, description, buttonLabel }) => {
         <p className="text-xl text-black mb-6 font-light leading-8">
           {description}
         </p>
-        <button className="bg-[#0E7AC5] text-white px-6 py-3 rounded-sm text-lg w-60 mt-4">
+        <button className="bg-primary text-white px-6 py-3 rounded-sm text-lg w-60 mt-4">
           {buttonLabel}
         </button>
       </div>
@@ -31,4 +31,4 @@ const FirstSection = ({ image, title, description, buttonLabel }) => {
   );
 };
 
-export default FirstSection;
+export default HeroSection;
