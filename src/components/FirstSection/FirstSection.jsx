@@ -2,9 +2,8 @@ import React from "react";
 
 const FirstSection = ({ image, title, description, buttonLabel }) => {
   return (
-    <div className="relative w-full lg:h-[calc(100vh-100px)]">
-      {/* Background Image (Visible only on large screens) */}
-      <div className="absolute inset-0 w-full h-full lg:block hidden">
+    <div className="relative w-full lg:h-[calc(100vh-100px)] h-[526px]">
+      <div className="absolute inset-0 w-full h-[100%] lg:block hidden">
         <img
           src={image}
           alt="Background"
@@ -12,8 +11,7 @@ const FirstSection = ({ image, title, description, buttonLabel }) => {
         />
       </div>
 
-      {/* Text Content */}
-      <div className="relative z-10 lg:m-0 lg:max-w-md lg:top-20 md:top-20 top-8 lg:left-[45%] lg:w-1/2 md:w-1/2 sm:w-4/5 px-6 w-full mx-auto">
+      <div className="relative z-10 lg:m-0 lg:max-w-md lg:top-20 md:top-20 top-8 lg:left-[45%] lg:w-1/2 md:w-1/2 sm:w-4/5 lg:px-6 md:px-6 px-16 w-full mx-auto">
         <h2 className="md:text-[42px] text-3xl font-medium text-black mb-6 leading-[50px] tracking-wide">
           An easier trip,{" "}
           <span className="hidden lg:inline">

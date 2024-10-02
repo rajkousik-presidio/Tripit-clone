@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Navbar, Nav, Button } from "react-bootstrap";
 import {
   FaInstagram,
@@ -14,11 +14,21 @@ import { MdArrowDropDown } from "react-icons/md";
 
 const NavbarComponent = () => {
   const [isOpen, setIsOpen] = useState(false); // Handle sidebar
+  const [isOverlayVisible, setIsOverlayVisible] = useState(false); // Handle overlay visibility
   const [dropdownOpen, setDropdownOpen] = useState(false); // Handle dropdown
   const [activeLink, setActiveLink] = useState(""); // Handle active link
 
   const toggleSidebar = () => {
-    setIsOpen(!isOpen);
+    if (!isOpen) {
+      setIsOverlayVisible(true);
+      setIsOpen(true);
+      setDropdownOpen(false);
+    } else {
+      setIsOpen(false);
+      setTimeout(() => {
+        setIsOverlayVisible(false);
+      }, 300); // Delay hiding overlay until sidebar transition is done
+    }
   };
 
   const toggleDropdown = () => {
@@ -32,10 +42,32 @@ const NavbarComponent = () => {
   const handleLinkClick = (link) => {
     setActiveLink(link);
     setIsOpen(false); // Close sidebar on link click
+    setTimeout(() => {
+      setIsOverlayVisible(false);
+    }, 300);
   };
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        // Close sidebar if screen size is larger than or equal to 1024px (lg breakpoint)
+        setIsOpen(false);
+        setIsOverlayVisible(false);
+      }
+    };
+
+    // Add event listener for window resize
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <>
+      {/* Navbar */}
       <Navbar
         fixed="top"
         className="px-5 sm:px-10 md:px-20 py-3 flex justify-between lg:justify-around items-center bg-white fixed top-0 w-full z-50 shadow-md lg:shadow-none"
@@ -125,6 +157,16 @@ const NavbarComponent = () => {
         </Navbar.Collapse>
       </Navbar>
 
+      {/* Overlay for Mobile View */}
+      {isOverlayVisible && (
+        <div
+          className={`fixed inset-0 bg-white transition-opacity duration-300 z-40 ${
+            isOpen ? "opacity-75" : "opacity-0"
+          }`}
+          onClick={toggleSidebar}
+        ></div>
+      )}
+
       {/* Sidebar for Mobile View */}
       <div
         className={`fixed top-0 right-0 w-72 h-full bg-white shadow-md p-10 z-50 flex flex-col transform transition-transform duration-300 ease-in-out ${
@@ -135,14 +177,13 @@ const NavbarComponent = () => {
           className="absolute top-3 right-3 text-3xl cursor-pointer"
           onClick={toggleSidebar}
         >
-          <span>
-            <IoIosClose className="text-[#0E7AC5] text-5xl" />
-          </span>
+          <IoIosClose className="text-[#0E7AC5] text-5xl" />
         </button>
         <Nav className="flex flex-col space-y-4 mt-12">
           {["tripit", "pro", "how-it-works", "pricing", "sap-concur"].map(
-            (link) => (
+            (link, index) => (
               <Nav.Link
+                key={index}
                 href={`#${link}`}
                 onClick={() => handleLinkClick(link)}
                 className={`text-black text-lg tracking-wide font-medium hover:text-[#0E7AC5] ${
@@ -158,6 +199,7 @@ const NavbarComponent = () => {
               </Nav.Link>
             )
           )}
+          {/* Rest of the sidebar content */}
           <Button
             variant="primary"
             className="mt-4 rounded-sm bg-white text-[#0E7AC5] border-2 border-[#0E7AC5] px-4 py-2 text-lg tracking-wide font-medium"
@@ -207,6 +249,7 @@ const NavbarComponent = () => {
               </div>
             )}
           </div>
+
           <div className="flex justify-between w-10/12 pt-12">
             <Nav.Link className="text-2xl hover:text-[#0E7AC5]">
               <FaInstagram />
