@@ -10,6 +10,7 @@ import ContentSection from "../../components/ContentSection/ContentSection";
 import BlogComponent from "../../components/BlogComponent/BlogComponent";
 import VideoSection from "../../components/VideoSection/VideoSection";
 import FeaturedSection from "../../components/FeaturedSection/FeaturedSection";
+import CallToActionSection from "../../components/CallToActionSection/CallToActionSection";
 
 const HomePage = () => {
   return (
@@ -53,6 +54,7 @@ const HomePage = () => {
         <BlogComponent />
         <VideoSection />
         <FeaturedSection />
+        <CallToActionSection />
         <BlogComponent />
       </div>
     </>
