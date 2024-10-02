@@ -32,7 +32,7 @@ const InputField = ({
       />
       <label
         htmlFor={inputId}
-        className={`absolute cursor-text left-4 top-3 text-sm text-primary transition-all duration-200 ease-in-out peer-placeholder-shown:text-gray-500 
+        className={`absolute cursor-text left-4 text-sm text-primary transition-all duration-200 ease-in-out peer-placeholder-shown:text-gray-500 
           ${value ? "text-xs" : "top-1/2"}
           transform -translate-y-1/2 peer-focus:top-3 peer-focus:text-xs px-[3px] peer-focus:text-primary`}
       >
