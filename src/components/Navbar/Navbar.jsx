@@ -13,10 +13,10 @@ import { HiBars3 } from "react-icons/hi2";
 import { MdArrowDropDown } from "react-icons/md";
 
 const NavbarComponent = () => {
-  const [isOpen, setIsOpen] = useState(false); // Handle sidebar
-  const [isOverlayVisible, setIsOverlayVisible] = useState(false); // Handle overlay visibility
-  const [dropdownOpen, setDropdownOpen] = useState(false); // Handle dropdown
-  const [activeLink, setActiveLink] = useState(""); // Handle active link
+  const [isOpen, setIsOpen] = useState(false);
+  const [isOverlayVisible, setIsOverlayVisible] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [activeLink, setActiveLink] = useState("");
 
   const toggleSidebar = () => {
     if (!isOpen) {
@@ -27,7 +27,7 @@ const NavbarComponent = () => {
       setIsOpen(false);
       setTimeout(() => {
         setIsOverlayVisible(false);
-      }, 300); // Delay hiding overlay until sidebar transition is done
+      }, 300);
     }
   };
 
@@ -41,7 +41,7 @@ const NavbarComponent = () => {
 
   const handleLinkClick = (link) => {
     setActiveLink(link);
-    setIsOpen(false); // Close sidebar on link click
+    setIsOpen(false);
     setTimeout(() => {
       setIsOverlayVisible(false);
     }, 300);
@@ -50,16 +50,13 @@ const NavbarComponent = () => {
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 1024) {
-        // Close sidebar if screen size is larger than or equal to 1024px (lg breakpoint)
         setIsOpen(false);
         setIsOverlayVisible(false);
       }
     };
 
-    // Add event listener for window resize
     window.addEventListener("resize", handleResize);
 
-    // Cleanup event listener on component unmount
     return () => {
       window.removeEventListener("resize", handleResize);
     };

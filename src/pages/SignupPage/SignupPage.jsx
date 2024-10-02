@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import InputField from "../../ui/InputField/InputField";
-import FooterSimple from "../../components/FooterSimple/FooterSimple"; // This footer is different from the main footer
+import FooterSimple from "../../components/FooterSimple/FooterSimple";
 import logo from "../../assets/logo-tripit.svg";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebookSquare } from "react-icons/fa";
@@ -122,7 +122,7 @@ const SignupPage = () => {
           </div>
 
           <button
-            onClick={() => console.log("Account Created")}
+            onClick={() => ""}
             disabled={!isFormValid()}
             className={`w-full py-2 rounded-sm transition-all duration-300 text-white ${
               isFormValid() ? "bg-primary  hover:bg-[#1079C5]" : "bg-[#E9E9E9]"

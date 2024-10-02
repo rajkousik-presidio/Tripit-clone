@@ -11,7 +11,7 @@ const InputField = ({
   ...rest
 }) => {
   const [showPassword, setShowPassword] = useState(false);
-  const inputId = `${label.replace(/\s+/g, "-").toLowerCase()}-input`; // Generate a unique id based on the label
+  const inputId = `${label.replace(/\s+/g, "-").toLowerCase()}-input`;
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);

@@ -8,7 +8,7 @@ export default {
         lg: "1048px",
       },
       colors: {
-        primary: "#0E7AC5", // Replace this with your primary color value
+        primary: "#0E7AC5",
       },
     },
     fontFamily: {

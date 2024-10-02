@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import InputField from "../../ui/InputField/InputField";
-import FooterSimple from "../../components/FooterSimple/FooterSimple"; // This footer is different from the main footer
+import FooterSimple from "../../components/FooterSimple/FooterSimple";
 import logo from "../../assets/logo-tripit.svg";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebookSquare } from "react-icons/fa";
@@ -49,8 +49,6 @@ const LoginPage = () => {
       );
     } else {
       setErrorMessage("");
-      // Handle successful login logic here
-      console.log("Login successful");
     }
   };
 
@@ -64,7 +62,6 @@ const LoginPage = () => {
       <div className="min-h-screen flex flex-col items-center justify-start pt-24 bg-gray-50">
         <img src={logo} alt="TripIt Logo" className="mb-4 w-36" />
         <div className="px-8 py-2 w-full max-w-md">
-          {/* Email Input Field */}
           <InputField
             label="Email Address"
             type="email"
@@ -73,7 +70,6 @@ const LoginPage = () => {
             onChange={(e) => setEmail(e.target.value)}
           />
 
-          {/* Password Input Field */}
           <InputField
             label="Password"
             type="password"
@@ -82,7 +78,6 @@ const LoginPage = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
 
-          {/* Keep me signed in & Forgot password */}
           <div className="flex items-center justify-between my-6">
             <label className="inline-flex items-center">
               <input
@@ -98,7 +93,6 @@ const LoginPage = () => {
             </a>
           </div>
 
-          {/* Sign In Button */}
           <button
             onClick={handleSignIn}
             className="w-full bg-primary text-white py-2 rounded-sm hover:bg-[#1079C5] transition-all duration-300"
@@ -106,7 +100,6 @@ const LoginPage = () => {
             Sign In
           </button>
 
-          {/* Or sign in with */}
           <p className="mt-6 text-center text-sm tracking-wide text-gray-600">
             Or sign in with:
           </p>
@@ -119,7 +112,6 @@ const LoginPage = () => {
             </button>
           </div>
 
-          {/* Create Account Link */}
           <p className="mt-6 tracking-wide text-center text-sm text-gray-600">
             <a href="#" className="text-primary font-medium no-underline">
               Don't have an account? Create one.
@@ -127,7 +119,6 @@ const LoginPage = () => {
           </p>
         </div>
 
-        {/* Footer */}
         <FooterSimple />
       </div>
     </>
