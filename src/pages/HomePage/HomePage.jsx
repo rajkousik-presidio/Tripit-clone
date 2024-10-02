@@ -11,6 +11,7 @@ import BlogComponent from "../../components/BlogComponent/BlogComponent";
 import VideoSection from "../../components/VideoSection/VideoSection";
 import FeaturedSection from "../../components/FeaturedSection/FeaturedSection";
 import CallToActionSection from "../../components/CallToActionSection/CallToActionSection";
+import Footer from "../../components/Footer/Footer";
 
 const HomePage = () => {
   return (
@@ -55,7 +56,7 @@ const HomePage = () => {
         <VideoSection />
         <FeaturedSection />
         <CallToActionSection />
-        <BlogComponent />
+        <Footer />
       </div>
     </>
   );
