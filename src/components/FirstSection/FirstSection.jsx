@@ -11,7 +11,7 @@ const FirstSection = ({ image, title, description, buttonLabel }) => {
         />
       </div>
 
-      <div className="relative z-10 lg:m-0 lg:max-w-md lg:top-20 md:top-20 top-8 lg:left-[45%] lg:w-1/2 md:w-1/2 sm:w-4/5 lg:px-6 md:px-6 px-16 w-full mx-auto">
+      <div className="relative z-10 lg:m-0 lg:max-w-md lg:top-20 md:top-20 top-8 lg:left-[45%] lg:w-1/2 md:w-1/2 sm:w-4/5 lg:px-6 md:px-6 px-8 w-full mx-auto">
         <h2 className="md:text-[42px] text-3xl font-medium text-black mb-6 leading-[50px] tracking-wide">
           An easier trip,{" "}
           <span className="hidden lg:inline">
