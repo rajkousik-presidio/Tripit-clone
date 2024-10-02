@@ -31,6 +31,14 @@ const LoginPage = () => {
       return;
     }
 
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const isEmailValid = emailRegex.test(email);
+
+    if (!isEmailValid) {
+      setErrorMessage("Please enter a valid email address.");
+      return;
+    }
+
     const isValidUser = dummyAccounts.some(
       (account) => account.email === email && account.password === password
     );
@@ -54,7 +62,7 @@ const LoginPage = () => {
         </div>
       )}
       <div className="min-h-screen flex flex-col items-center justify-start pt-24 bg-gray-50">
-        <img src={logo} alt="TripIt Logo" className="mb-8 w-36" />
+        <img src={logo} alt="TripIt Logo" className="mb-4 w-36" />
         <div className="px-8 py-2 w-full max-w-md">
           {/* Email Input Field */}
           <InputField
@@ -75,7 +83,7 @@ const LoginPage = () => {
           />
 
           {/* Keep me signed in & Forgot password */}
-          <div className="flex items-center justify-between mb-6">
+          <div className="flex items-center justify-between my-6">
             <label className="inline-flex items-center">
               <input
                 type="checkbox"
@@ -85,7 +93,7 @@ const LoginPage = () => {
                 Keep me signed in.
               </span>
             </label>
-            <a href="#" className="text-sm text-primary hover:underline">
+            <a href="#" className="text-sm text-primary no-underline">
               Forgot password?
             </a>
           </div>
