@@ -4,6 +4,7 @@ import PlayBtn from "../../assets/playBtn.svg";
 
 const VideoSection = () => {
   const [showVideo, setShowVideo] = useState(false);
+  const [isSectionVisible, setIsSectionVisible] = useState(false);
   const sectionRef = useRef(null);
 
   // Disable scrolling when the video is open and handle page view
@@ -20,16 +21,41 @@ const VideoSection = () => {
     };
   }, [showVideo]);
 
+  // Use IntersectionObserver to check if the VideoSection is in the viewport
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsSectionVisible(entry.isIntersecting);
+      },
+      {
+        root: null, // Use the viewport as the root
+        threshold: 0.5, // 50% of the section should be visible to consider it in view
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   const handlePlayClick = () => {
     setShowVideo(true);
   };
 
   const handleCloseClick = () => {
     setShowVideo(false);
-    sectionRef.current?.scrollIntoView({
-      behavior: "smooth",
-      block: "center", // Scroll the section to the vertical center of the viewport
-    });
+    if (!isSectionVisible) {
+      sectionRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "center", // Scroll the section to the vertical center of the viewport
+      });
+    }
   };
 
   return (

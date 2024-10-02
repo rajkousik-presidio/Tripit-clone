@@ -16,7 +16,7 @@ const ContentSection = ({
       } items-center justify-center lg:w-[90%] tablet:w-[75%] md:w-[63%] max-w-screen-xl mx-auto md:px-16 px-8 gap-16 mb-20`}
     >
       {/* Text Content */}
-      <div className="tablet:w-2/5 lg:w-1/2 w-full mb-4">
+      <div className="tablet:w-2/5 lg:w-1/2 w-full max-w-[450px] mb-4">
         <h2 className="text-2xl font-medium text-black mb-4">{title}</h2>
         <p className="text-base font-light text-black mb-8 tracking-wider">
           {description}
