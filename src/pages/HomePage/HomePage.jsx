@@ -9,6 +9,7 @@ import image3 from "../../assets/image3.png";
 import ContentSection from "../../components/ContentSection/ContentSection";
 import BlogComponent from "../../components/BlogComponent/BlogComponent";
 import VideoSection from "../../components/VideoSection/VideoSection";
+import FeaturedSection from "../../components/FeaturedSection/FeaturedSection";
 
 const HomePage = () => {
   return (
@@ -21,7 +22,6 @@ const HomePage = () => {
           description="Imagine checking one place for your travel details and getting a heads up as things happen throughout your trip. See why life without TripIt is a distant memory for millions of travelers."
           buttonLabel="Get Started"
         />
-
         <ContentSection
           image={image1}
           title="You handle the booking, we'll take it from there"
@@ -31,7 +31,6 @@ const HomePage = () => {
           author="Damen L."
           reverse={true}
         />
-
         <ContentSection
           image={image2}
           title="Helpful reminders and alerts so you don't miss a beat"
@@ -41,7 +40,6 @@ const HomePage = () => {
           author="Ann B."
           reverse={false}
         />
-
         <ContentSection
           image={image3}
           title="Know where to be and when"
@@ -51,11 +49,10 @@ const HomePage = () => {
           author="Phil D."
           reverse={true}
         />
-
         <hr />
-
         <BlogComponent />
         <VideoSection />
+        <FeaturedSection />
         <BlogComponent />
       </div>
     </>

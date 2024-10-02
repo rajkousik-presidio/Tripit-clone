@@ -29,7 +29,7 @@ const VideoSection = () => {
       },
       {
         root: null, // Use the viewport as the root
-        threshold: 0.5, // 50% of the section should be visible to consider it in view
+        threshold: 0.8, // 80% of the section should be visible to consider it in view
       }
     );
 
@@ -91,7 +91,7 @@ const VideoSection = () => {
         {/* Video Player */}
         {showVideo && (
           <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-80 z-50">
-            <div className="relative w-full max-w-5xl mx-auto p-4 aspect-video">
+            <div className="relative w-full max-w-6xl mx-auto p-4 aspect-video">
               <iframe
                 src="https://www.youtube.com/embed/dQw4w9WgXcQ"
                 title="YouTube video player"
