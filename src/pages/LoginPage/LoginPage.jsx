@@ -5,6 +5,7 @@ import logo from "../../assets/logo-tripit.svg";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebookSquare } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
+import axiosInstance from "../../utils/axiosConfig";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -37,13 +38,11 @@ const LoginPage = () => {
     }
 
     try {
-      const response = await fetch(
-        `http://localhost:3000/users?email=${email}&password=${password}`
+      const response = await axiosInstance.get(
+        `/users?email=${email}&password=${password}`
       );
-      console.log(response);
-      const data = await response.json();
 
-      if (data.length > 0) {
+      if (response.data.length > 0) {
         // Valid user found
         setErrorMessage("");
         // Redirect to the home page

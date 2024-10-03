@@ -6,6 +6,7 @@ import { FcGoogle } from "react-icons/fc";
 import { FaFacebookSquare } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import axiosInstance from "../../utils/axiosConfig";
 
 const SignupPage = () => {
   const [email, setEmail] = useState("");
@@ -70,15 +71,9 @@ const SignupPage = () => {
       };
 
       try {
-        const response = await fetch("http://localhost:3000/users", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(newUser),
-        });
+        const response = await axiosInstance.post("/users", newUser);
 
-        if (response.ok) {
+        if (response.status === 201) {
           // Navigate to the home page after successful signup
           navigate("/web");
         } else {

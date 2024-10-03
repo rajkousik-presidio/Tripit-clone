@@ -17,10 +17,142 @@
       "homeCity": "Chennai"
     },
     {
-      "id": "9a97",
-      "email": "kousik@gmail.com",
-      "password": "kousik123",
-      "homeCity": "Chennai"
+      "id": "c0c0",
+      "email": "raj@gmail.com",
+      "password": "rajkousik",
+      "homeCity": "bangalore"
     }
-  ]
+  ],
+  "blogPosts": [
+    {
+      "id": "1",
+      "image": "http://localhost:3000/blogImage1.png",
+      "title": "New Search Tool Added for Locating Trip Details in TripIt for iOS",
+      "description": "With a few keywords, you can now search within your travel plans (past and upcoming) to find trip details."
+    },
+    {
+      "id": "2",
+      "image": "http://localhost:3000/blogImage2.png",
+      "title": "City Break: Manhattan",
+      "description": "In this series from TripIt, we explore some of the world’s best cities for planning a quick getaway or extending a work trip."
+    },
+    {
+      "id": "3",
+      "image": "http://localhost:3000/blogImage3.png",
+      "title": "New Enhancements for Navigating Travel Based on Your Vaccination Status",
+      "description": "Find information about vaccination rates and requirements, approved vaccines, exemptions for vaccinated travelers, and more, right in TripIt’s COVID-19 travel guidance feature."
+    }
+  ],
+  "faqs": [
+    {
+      "id": 1,
+      "question": "How does TripIt work?",
+      "answer": [
+        "You handle the booking, we’ll take it from there. Simply forward your confirmation emails to plans@tripit.com and TripIt will automatically create a comprehensive itinerary for each of your trips—whether it’s a business trip, a family vacation or a quick weekend away.",
+        "TripIt supports almost any type of travel plan you have, from flights, hotel reservations, rental cars, trains, airport shuttles and cruise reservations, to travel agency bookings and even events booked on sites like OpenTable, Eventbrite and StubHub.",
+        "Within your itinerary you’ll see dates, times and confirmation numbers for each reservation. You can add plans to TripIt that don’t come with a confirmation email, along with notes or photos, right from your device."
+      ]
+    },
+    {
+      "id": 2,
+      "question": "What’s the difference between TripIt and TripIt Pro?",
+      "answer": [
+        "While TripIt automatically organizes all your travel plans in one place, TripIt Pro helps you stay one step ahead—from planning to landing. For $49 per year, it’s packed with features that give you a heads up before things happen and help you navigate any surprises along the way.",
+        "TripIt Pro sends you helpful reminders and alerts so you don't miss a beat. It reminds you when to leave, tells you how long it should take—and shows you other options if you need to change your plans. It will even escort you directly to your gate, connection, or bags with walking directions—and help you find amenities along the way."
+      ]
+    },
+    {
+      "id": 3,
+      "question": "Which devices does it work on?",
+      "answer": [
+        "Download the TripIt app for any number of devices, including your smartphone, tablet, or wearable device. You can even access your itinerary offline.",
+        "The TripIt app is available for iOS (including Apple Watch) and Android (including Android Wear)."
+      ]
+    },
+    {
+      "id": 4,
+      "question": "How is it different from other apps?",
+      "answer": [
+        "Unlike other apps, TripIt can organize all your travel plans no matter where you book. Simply forward your confirmation emails to plans@tripit.com and in a matter of seconds, TripIt will create a comprehensive itinerary for every trip."
+      ]
+    }
+  ],
+  "logos": [
+    {
+      "id": 1,
+      "src": "http://localhost:3000/nyt.svg",
+      "alt": "The New York Times",
+      "size": "w-56"
+    },
+    {
+      "id": 2,
+      "src": "http://localhost:3000/forbes.svg",
+      "alt": "Forbes",
+      "size": "w-28"
+    },
+    {
+      "id": 3,
+      "src": "http://localhost:3000/nbc.svg",
+      "alt": "NBC",
+      "size": "w-16"
+    },
+    {
+      "id": 4,
+      "src": "http://localhost:3000/wsj.svg",
+      "alt": "Wall Street Journal",
+      "size": "w-56"
+    },
+    {
+      "id": 5,
+      "src": "http://localhost:3000/tl.svg",
+      "alt": "Travel + Leisure",
+      "size": "w-32"
+    }
+  ],
+  "freePlan": {
+    "id": "free",
+    "name": "TripIt",
+    "price": "FREE",
+    "features": [
+      "Organizes your travel plans",
+      "Creates a comprehensive itinerary",
+      "Provides access across devices",
+      "Adds plans from your inbox for you",
+      "Syncs plans with your calendar",
+      "Stores important travel information",
+      "Helps you share plans with others",
+      "Shows transportation options",
+      "Finds places near your hotel",
+      "Shows neighborhood safety scores",
+      "Includes airports and terminals maps",
+      "Lets you rate your in-flight experience",
+      "Finds eligibility for flight compensation",
+      "Tracks carbon footprint and shows offset options",
+      "Tallies and displays travel stats",
+      "Upload 3 documents per trip"
+    ]
+  },
+  "proPlan": {
+    "id": "pro",
+    "name": "TripIt Pro",
+    "price": "$49 PER YEAR",
+    "features": [
+      "Everything in TripIt (free), plus",
+      "Sends real-time flight alerts",
+      "Monitors for fare refunds",
+      "Helps you find a better seat",
+      "Finds alternate flights",
+      "Reminds you when to check in",
+      "Tells you to 'Go Now' to the airport",
+      "Sends terminal and gate reminders",
+      "Navigates you through the airport",
+      "Guides you to your connecting gate",
+      "Displays baggage claim info",
+      "Provides country-specific travel info",
+      "Updates people on your travel plans",
+      "Speeds you through security",
+      "Tracks your reward programs",
+      "Upload 25 documents per trip"
+    ]
+  }
 }

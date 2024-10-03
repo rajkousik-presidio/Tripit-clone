@@ -1,32 +1,23 @@
 import React, { useState, useEffect } from "react";
-import blogImage1 from "../../assets/blogImage1.png";
-import blogImage2 from "../../assets/blogImage2.png";
-import blogImage3 from "../../assets/blogImage3.png";
-
-const blogPosts = [
-  {
-    image: blogImage1,
-    title: "New Search Tool Added for Locating Trip Details in TripIt for iOS",
-    description:
-      "With a few keywords, you can now search within your travel plans (past and upcoming) to find trip details.",
-  },
-  {
-    image: blogImage2,
-    title: "City Break: Manhattan",
-    description:
-      "In this series from TripIt, we explore some of the world’s best cities for planning a quick getaway or extending a work trip.",
-  },
-  {
-    image: blogImage3,
-    title:
-      "New Enhancements for Navigating Travel Based on Your Vaccination Status",
-    description:
-      "Find information about vaccination rates and requirements, approved vaccines, exemptions for vaccinated travelers, and more, right in TripIt’s COVID-19 travel guidance feature.",
-  },
-];
+import axiosInstance from "../../utils/axiosConfig";
 
 const BlogComponent = () => {
+  const [blogPosts, setBlogPosts] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Fetch blog posts from JSON server
+  useEffect(() => {
+    const fetchBlogPosts = async () => {
+      try {
+        const response = await axiosInstance.get("/blogPosts");
+        setBlogPosts(response.data);
+      } catch (error) {
+        console.error("Error fetching blog posts:", error);
+      }
+    };
+
+    fetchBlogPosts();
+  }, []);
 
   // Handle automatic slide change
   useEffect(() => {
@@ -35,7 +26,7 @@ const BlogComponent = () => {
     }, 4000); // Change slide every 4 seconds
 
     return () => clearInterval(interval);
-  }, []);
+  }, [blogPosts]);
 
   // Handle manual dot click
   const handleDotClick = (index) => {
@@ -61,6 +52,7 @@ const BlogComponent = () => {
                 alt={post.title}
                 className="w-full h-auto object-contain rounded-lg shadow-lg"
               />
+              {console.log(post.image)}
               <div className="w-full mt-8">
                 <h4 className="text-xl font-medium text-black mb-4 text-left tracking-wide">
                   {post.title}
