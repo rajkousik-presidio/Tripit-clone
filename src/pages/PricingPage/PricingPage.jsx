@@ -8,12 +8,10 @@ import Footer from "../../components/Footer/Footer";
 const PricingPage = () => {
   return (
     <>
-      <NavbarComponent />
       <div className="mt-[100px]">
         <PricingIntroSection />
         <PlanComparison />
         <FAQSection />
-        <Footer />
       </div>
     </>
   );

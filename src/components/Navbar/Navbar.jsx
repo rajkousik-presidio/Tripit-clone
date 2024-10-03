@@ -11,12 +11,14 @@ import { IoIosClose } from "react-icons/io";
 import logo from "../../assets/logo-tripit.svg";
 import { HiBars3 } from "react-icons/hi2";
 import { MdArrowDropDown } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 
 const NavbarComponent = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isOverlayVisible, setIsOverlayVisible] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [activeLink, setActiveLink] = useState("");
+  const navigate = useNavigate();
 
   const toggleSidebar = () => {
     if (!isOpen) {
@@ -39,12 +41,36 @@ const NavbarComponent = () => {
     setDropdownOpen(false);
   };
 
+  useEffect(() => {
+    // Update active link based on the current pathname
+    const currentPath = location.pathname;
+    if (currentPath.includes("pricing")) {
+      setActiveLink("pricing");
+    } else if (currentPath.includes("account/login")) {
+      setActiveLink("sign-in");
+    } else if (currentPath.includes("account/create")) {
+      setActiveLink("sign-up");
+    } else if (currentPath.includes("web")) {
+      setActiveLink("tripit");
+    } else {
+      setActiveLink("");
+    }
+  }, [location]);
+
   const handleLinkClick = (link) => {
     setActiveLink(link);
     setIsOpen(false);
     setTimeout(() => {
       setIsOverlayVisible(false);
     }, 300);
+  };
+
+  const handlePageNavigation = (link) => {
+    if (link === "sign-in") navigate("/account/login");
+    else if (link === "sign-up") navigate("/account/create");
+    else if (link === "pricing") navigate("/web/pro/pricing");
+    else navigate("/");
+    setActiveLink(link);
   };
 
   useEffect(() => {
@@ -97,8 +123,18 @@ const NavbarComponent = () => {
             ].map((link) => (
               <Nav.Link
                 key={link}
-                href={`#${link}`}
-                onClick={() => handleLinkClick(link)}
+                // href={`#${link}`}
+                onClick={() => {
+                  if (link === "sign-in") {
+                    handlePageNavigation("sign-in");
+                  } else if (link === "pricing") {
+                    handlePageNavigation("pricing");
+                  } else if (link === "tripit") {
+                    handlePageNavigation("/");
+                  } else {
+                    handleLinkClick(link);
+                  }
+                }}
                 className={`text-black tracking-wide text-[0.9rem] px-1 font-medium hover:text-primary ${
                   activeLink === link ? "border-b-2 border-b-primary" : ""
                 }`}
@@ -112,6 +148,7 @@ const NavbarComponent = () => {
             <Button
               variant="outline-primary"
               className="m-0 border-2 rounded-sm tracking-wide border-primary text-primary px-4 py-2 text-[0.9rem] font-normal hover:bg-[#106CC5] hover:text-white"
+              onClick={() => handlePageNavigation("sign-up")}
             >
               Sign Up—It’s Free!
             </Button>
@@ -200,14 +237,14 @@ const NavbarComponent = () => {
           <Button
             variant="primary"
             className="mt-4 rounded-sm bg-white text-primary border-2 border-primary px-4 py-2 text-lg tracking-wide font-medium"
-            onClick={() => handleLinkClick("sign-in")}
+            onClick={() => handlePageNavigation("sign-in")}
           >
             Sign In
           </Button>
           <Button
             variant="primary"
             className="mt-4 rounded-sm bg-primary text-white px-4 py-3 text-lg tracking-wide font-medium hover:bg-[#106CC5]"
-            onClick={toggleSidebar}
+            onClick={() => handlePageNavigation("sign-up")}
           >
             Sign Up—It’s Free!
           </Button>

@@ -13,7 +13,6 @@ import Footer from "../../components/Footer/Footer";
 const HomePage = () => {
   return (
     <>
-      <NavbarComponent />
       <div className="mt-[100px]">
         <FirstSection
           image={bahImage}
@@ -27,7 +26,6 @@ const HomePage = () => {
         <VideoSection />
         <FeaturedSection />
         <CallToActionSection />
-        <Footer />
       </div>
     </>
   );

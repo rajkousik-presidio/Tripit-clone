@@ -4,6 +4,7 @@ import FooterSimple from "../../components/FooterSimple/FooterSimple";
 import logo from "../../assets/logo-tripit.svg";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebookSquare } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const SignupPage = () => {
   const [email, setEmail] = useState("");
@@ -144,9 +145,12 @@ const SignupPage = () => {
           </div>
 
           <p className="mt-6 tracking-wide text-center text-sm text-gray-600">
-            <a href="#" className="text-primary font-medium no-underline">
+            <Link
+              to="/account/login"
+              className="text-primary font-medium no-underline"
+            >
               Already a TripIt user? Sign In.
-            </a>
+            </Link>
           </p>
         </div>
 

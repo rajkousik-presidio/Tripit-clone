@@ -4,6 +4,7 @@ import FooterSimple from "../../components/FooterSimple/FooterSimple";
 import logo from "../../assets/logo-tripit.svg";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebookSquare } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const dummyAccounts = [
   { email: "test1@gmail.com", password: "password123" },
@@ -113,9 +114,12 @@ const LoginPage = () => {
           </div>
 
           <p className="mt-6 tracking-wide text-center text-sm text-gray-600">
-            <a href="#" className="text-primary font-medium no-underline">
+            <Link
+              to="/account/create"
+              className="text-primary font-medium no-underline"
+            >
               Don't have an account? Create one.
-            </a>
+            </Link>
           </p>
         </div>
 
