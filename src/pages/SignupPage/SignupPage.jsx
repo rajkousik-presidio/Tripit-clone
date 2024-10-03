@@ -5,6 +5,7 @@ import logo from "../../assets/logo-tripit.svg";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebookSquare } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const SignupPage = () => {
   const [email, setEmail] = useState("");
@@ -12,6 +13,7 @@ const SignupPage = () => {
   const [homeCity, setHomeCity] = useState("");
   const [error, setError] = useState({ email: "", password: "", homeCity: "" });
   const [checkbox, setCheckbox] = useState(false);
+  const navigate = useNavigate();
 
   const isFormValid = () => {
     return (
@@ -57,6 +59,42 @@ const SignupPage = () => {
 
   const handleCheckboxChange = (e) => {
     setCheckbox(e.target.checked);
+  };
+
+  const handleSignUp = async () => {
+    if (isFormValid()) {
+      const newUser = {
+        email,
+        password,
+        homeCity,
+      };
+
+      try {
+        const response = await fetch("http://localhost:3000/users", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newUser),
+        });
+
+        if (response.ok) {
+          // Navigate to the home page after successful signup
+          navigate("/web");
+        } else {
+          setError((prev) => ({
+            ...prev,
+            form: "Failed to create account. Please try again later.",
+          }));
+        }
+      } catch (error) {
+        console.error("Error:", error);
+        setError((prev) => ({
+          ...prev,
+          form: "An error occurred. Please try again later.",
+        }));
+      }
+    }
   };
 
   return (
@@ -123,7 +161,7 @@ const SignupPage = () => {
           </div>
 
           <button
-            onClick={() => ""}
+            onClick={handleSignUp}
             disabled={!isFormValid()}
             className={`w-full py-2 rounded-sm transition-all duration-300 text-white ${
               isFormValid() ? "bg-primary  hover:bg-[#1079C5]" : "bg-[#E9E9E9]"

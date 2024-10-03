@@ -4,19 +4,15 @@ import FooterSimple from "../../components/FooterSimple/FooterSimple";
 import logo from "../../assets/logo-tripit.svg";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebookSquare } from "react-icons/fa";
-import { Link } from "react-router-dom";
-
-const dummyAccounts = [
-  { email: "test1@gmail.com", password: "password123" },
-  { email: "test2@gmail.com", password: "password456" },
-];
+import { Link, useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const navigate = useNavigate();
 
-  const handleSignIn = () => {
+  const handleSignIn = async () => {
     if (!email && !password) {
       setErrorMessage("Please enter your email address and password.");
       return;
@@ -40,16 +36,27 @@ const LoginPage = () => {
       return;
     }
 
-    const isValidUser = dummyAccounts.some(
-      (account) => account.email === email && account.password === password
-    );
-
-    if (!isValidUser) {
-      setErrorMessage(
-        "The email address and/or password you entered do not match our records. Passwords are cAsE sEnSiTiVe."
+    try {
+      const response = await fetch(
+        `http://localhost:3000/users?email=${email}&password=${password}`
       );
-    } else {
-      setErrorMessage("");
+      console.log(response);
+      const data = await response.json();
+
+      if (data.length > 0) {
+        // Valid user found
+        setErrorMessage("");
+        // Redirect to the home page
+        navigate("/web");
+      } else {
+        // Invalid user credentials
+        setErrorMessage(
+          "The email address and/or password you entered do not match our records. Passwords are cAsE sEnSiTiVe."
+        );
+      }
+    } catch (error) {
+      setErrorMessage("Something went wrong. Please try again later.");
+      console.error("Error:", error);
     }
   };
 
