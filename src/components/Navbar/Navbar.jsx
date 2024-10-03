@@ -46,6 +46,8 @@ const NavbarComponent = () => {
     const currentPath = location.pathname;
     if (currentPath.includes("pricing")) {
       setActiveLink("pricing");
+    } else if (currentPath.includes("sap-concur")) {
+      setActiveLink("SAP-concur");
     } else if (currentPath.includes("account/login")) {
       setActiveLink("sign-in");
     } else if (currentPath.includes("account/create")) {
@@ -69,6 +71,7 @@ const NavbarComponent = () => {
     if (link === "sign-in") navigate("/account/login");
     else if (link === "sign-up") navigate("/account/create");
     else if (link === "pricing") navigate("/web/pro/pricing");
+    else if (link === "SAP-concur") navigate("/web/pro/sap-concur");
     else navigate("/");
     setActiveLink(link);
   };
@@ -129,6 +132,8 @@ const NavbarComponent = () => {
                     handlePageNavigation("sign-in");
                   } else if (link === "pricing") {
                     handlePageNavigation("pricing");
+                  } else if (link === "SAP-concur") {
+                    handlePageNavigation("SAP-concur");
                   } else if (link === "tripit") {
                     handlePageNavigation("/");
                   } else {

@@ -49,7 +49,7 @@ const Footer = () => {
         </div>
 
         {/* Links Section */}
-        <div className="flex-1 grid md:grid-cols-3 gap-8 mx-auto">
+        <div className="flex-1 grid md:grid-cols-3 lg:gap-8 gap-1 mx-auto">
           {/* Products Section */}
           <div className="px-1">
             <div
@@ -66,7 +66,7 @@ const Footer = () => {
               </span>
             </div>
             <ul
-              className={`mt-2 transition-max-height duration-1000 ease-in-out overflow-hidden md:block ${
+              className={`my-2 transition-max-height duration-1000 ease-in-out overflow-hidden md:block ${
                 isLargeScreen || openSection === "products"
                   ? "max-h-[500px]"
                   : "max-h-0"
@@ -103,7 +103,7 @@ const Footer = () => {
               </span>
             </div>
             <ul
-              className={`mt-2 transition-max-height duration-1000 ease-in-out overflow-hidden md:block ${
+              className={`my-2 transition-max-height duration-1000 ease-in-out overflow-hidden md:block ${
                 isLargeScreen || openSection === "resources"
                   ? "max-h-[500px]"
                   : "max-h-0"
@@ -147,7 +147,7 @@ const Footer = () => {
               </span>
             </div>
             <ul
-              className={`mt-2 transition-max-height duration-1000 ease-in-out overflow-hidden md:block ${
+              className={`my-2 transition-max-height duration-1000 ease-in-out overflow-hidden md:block ${
                 isLargeScreen || openSection === "partners"
                   ? "max-h-[500px]"
                   : "max-h-0"

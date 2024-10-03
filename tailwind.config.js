@@ -13,6 +13,8 @@ export default {
     },
     fontFamily: {
       sans: ["Inter", "sans-serif"],
+      proxima_bold: ["MyCustomFontBold", "sans-serif"],
+      proxima_regular: ["MyCustomFontRegular", "sans-serif"],
     },
     flex: {
       2: "2 2 0%",

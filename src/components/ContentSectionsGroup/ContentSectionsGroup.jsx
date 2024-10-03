@@ -1,4 +1,3 @@
-// src/components/ContentSectionsGroup/ContentSectionsGroup.jsx
 import React from "react";
 import ContentSection from "../ContentSection/ContentSection";
 import image1 from "../../assets/image1.png";

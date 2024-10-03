@@ -5,3 +5,15 @@
 ::-webkit-scrollbar {
   display: none;
 }
+
+@font-face {
+  font-family: "MyCustomFontBold";
+  src: url("/fonts/ProximaNovaSbold.woff2") format("woff2");
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "MyCustomFontRegular";
+  src: url("/fonts/proxima_nova_reg.woff2") format("woff2");
+  font-style: normal;
+}

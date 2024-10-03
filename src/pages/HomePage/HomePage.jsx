@@ -24,7 +24,11 @@ const HomePage = () => {
       <BlogComponent />
       <VideoSection />
       <FeaturedSection />
-      <CallToActionSection />
+      <CallToActionSection
+        title="Try the travel app that keeps up with you"
+        description="So many trips, so little time. Let TripIt worry about the details, so you don't have to."
+        buttonText="Sign Up—It's Free!"
+      />
     </>
   );
 };

@@ -16,8 +16,8 @@ const ContentSection = ({
       } items-center justify-center lg:w-[90%] tablet:w-[75%] md:w-[63%] max-w-screen-xl mx-auto md:px-16 px-8 gap-16 mb-20`}
     >
       {/* Text Content */}
-      <div className="tablet:w-2/5 lg:w-1/2 w-full max-w-[450px] mb-4">
-        <h2 className="text-2xl font-medium text-black mb-4">{title}</h2>
+      <div className="tablet:w-2/5 lg:w-1/2 w-full max-w-[450px] mb-4 p-6">
+        <h2 className="text-[28px] font-medium text-black mb-4">{title}</h2>
         <p className="text-base font-light text-black mb-8 tracking-wider">
           {description}
         </p>
@@ -35,7 +35,7 @@ const ContentSection = ({
           </p>
         )}
         {author && (
-          <p className="font-thin tracking-wide text-gray-500 text-right mt-4">
+          <p className="font-thin tracking-wide italic text-gray-500 text-right mt-4">
             - {author}
           </p>
         )}

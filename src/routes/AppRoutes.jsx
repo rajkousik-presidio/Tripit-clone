@@ -11,6 +11,7 @@ import SignupPage from "../pages/SignupPage/SignupPage";
 import PricingPage from "../pages/PricingPage/PricingPage";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import Layout from "../components/Layout/Layout";
+import SapConcurPage from "../pages/SapConcurPage/SapConcurPage";
 
 const AppRoutes = () => {
   return (
@@ -30,6 +31,14 @@ const AppRoutes = () => {
           element={
             <Layout>
               <PricingPage />
+            </Layout>
+          }
+        />
+        <Route
+          path="/web/pro/sap-concur"
+          element={
+            <Layout>
+              <SapConcurPage />
             </Layout>
           }
         />

@@ -55,9 +55,17 @@ const FAQSection = () => {
                 <h3 className="text-[20px] font-medium">{faq.question}</h3>
                 <div className="w-10 flex items-center justify-center font-bold">
                   {expandedQuestion === index ? (
-                    <MdKeyboardArrowUp size={24} className="text-primary" />
+                    <i
+                      size={24}
+                      className="bi bi-chevron-up text-primary"
+                      style={{ "-webkit-text-stroke": "2.5px" }}
+                    ></i>
                   ) : (
-                    <MdKeyboardArrowDown size={24} className="text-primary" />
+                    <i
+                      size={24}
+                      className="bi bi-chevron-down text-primary"
+                      style={{ "-webkit-text-stroke": "2.5px" }}
+                    ></i>
                   )}
                 </div>
               </div>
