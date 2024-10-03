@@ -203,7 +203,7 @@ const Footer = () => {
         </div>
 
         {/* Footer Note */}
-        <p className="text-center text-xs tracking-wider lg:px-16 font-light text-[#6F6F6F]">
+        <p className="text-center w-2/3 mx-auto text-xs tracking-wider lg:px-16 font-light text-[#6F6F6F]">
           &copy; 2006-2024, Concur Technologies, Inc. All rights reserved.
           TripIt&reg; and Concur&reg; are registered trademarks of Concur
           Technologies, Inc. Other trademarks held by their respective owners.

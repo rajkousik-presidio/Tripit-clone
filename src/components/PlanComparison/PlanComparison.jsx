@@ -30,7 +30,7 @@ const PlanComparison = () => {
 
   return (
     <div
-      className="w-full bg-white py-3 relative"
+      className="w-full bg-white py-3 lg:pb-24 relative"
       style={{
         backgroundImage: isLargeScreen ? `url(${backgroundImage})` : "none",
         backgroundRepeat: "no-repeat",
@@ -43,7 +43,7 @@ const PlanComparison = () => {
         <div
           className={`${
             !isLargeScreen
-              ? "border-y-2 border-gray-100"
+              ? "border-t-2 border-gray-100"
               : "border border-gray-100"
           } rounded-md w-full md:w-4/5 lg:w-[40%] pt-6 lg:pb-12 pb-3 px-8 mb-8 lg:mb-0 bg-white mx-auto`}
         >
@@ -128,7 +128,9 @@ const PlanComparison = () => {
         {/* TripIt Pro Plan */}
         <div
           className={`${
-            isLargeScreen ? "lg:-mt-4 border-t-[16px] border-primary" : ""
+            isLargeScreen
+              ? "lg:-mt-4 border-t-[16px] border-primary"
+              : "border-t-2 border-gray-100"
           } lg:shadow-lg w-full md:w-4/5 lg:w-[40%] pt-6 pb-12 px-8 mb-8 bg-white relative mx-auto`}
         >
           <div
