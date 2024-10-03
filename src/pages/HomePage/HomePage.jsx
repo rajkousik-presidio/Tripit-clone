@@ -13,20 +13,18 @@ import Footer from "../../components/Footer/Footer";
 const HomePage = () => {
   return (
     <>
-      <div className="mt-[100px]">
-        <FirstSection
-          image={bahImage}
-          title="An easier trip, each time"
-          description="Imagine checking one place for your travel details and getting a heads up as things happen throughout your trip. See why life without TripIt is a distant memory for millions of travelers."
-          buttonLabel="Get Started"
-        />
-        <ContentSectionsGroup />
-        <hr />
-        <BlogComponent />
-        <VideoSection />
-        <FeaturedSection />
-        <CallToActionSection />
-      </div>
+      <FirstSection
+        image={bahImage}
+        title="An easier trip, each time"
+        description="Imagine checking one place for your travel details and getting a heads up as things happen throughout your trip. See why life without TripIt is a distant memory for millions of travelers."
+        buttonLabel="Get Started"
+      />
+      <ContentSectionsGroup />
+      <hr />
+      <BlogComponent />
+      <VideoSection />
+      <FeaturedSection />
+      <CallToActionSection />
     </>
   );
 };
