@@ -21,6 +21,12 @@
       "email": "raj@gmail.com",
       "password": "rajkousik",
       "homeCity": "bangalore"
+    },
+    {
+      "id": "5854",
+      "email": "asasa@g.c",
+      "password": "as1212121",
+      "homeCity": "12"
     }
   ],
   "blogPosts": [
@@ -45,7 +51,7 @@
   ],
   "faqs": [
     {
-      "id": 1,
+      "id": "1",
       "question": "How does TripIt work?",
       "answer": [
         "You handle the booking, we’ll take it from there. Simply forward your confirmation emails to plans@tripit.com and TripIt will automatically create a comprehensive itinerary for each of your trips—whether it’s a business trip, a family vacation or a quick weekend away.",
@@ -54,7 +60,7 @@
       ]
     },
     {
-      "id": 2,
+      "id": "2",
       "question": "What’s the difference between TripIt and TripIt Pro?",
       "answer": [
         "While TripIt automatically organizes all your travel plans in one place, TripIt Pro helps you stay one step ahead—from planning to landing. For $49 per year, it’s packed with features that give you a heads up before things happen and help you navigate any surprises along the way.",
@@ -62,7 +68,7 @@
       ]
     },
     {
-      "id": 3,
+      "id": "3",
       "question": "Which devices does it work on?",
       "answer": [
         "Download the TripIt app for any number of devices, including your smartphone, tablet, or wearable device. You can even access your itinerary offline.",
@@ -70,7 +76,7 @@
       ]
     },
     {
-      "id": 4,
+      "id": "4",
       "question": "How is it different from other apps?",
       "answer": [
         "Unlike other apps, TripIt can organize all your travel plans no matter where you book. Simply forward your confirmation emails to plans@tripit.com and in a matter of seconds, TripIt will create a comprehensive itinerary for every trip."
@@ -79,31 +85,31 @@
   ],
   "logos": [
     {
-      "id": 1,
+      "id": "1",
       "src": "http://localhost:3000/nyt.svg",
       "alt": "The New York Times",
       "size": "w-56"
     },
     {
-      "id": 2,
+      "id": "2",
       "src": "http://localhost:3000/forbes.svg",
       "alt": "Forbes",
       "size": "w-28"
     },
     {
-      "id": 3,
+      "id": "3",
       "src": "http://localhost:3000/nbc.svg",
       "alt": "NBC",
       "size": "w-16"
     },
     {
-      "id": 4,
+      "id": "4",
       "src": "http://localhost:3000/wsj.svg",
       "alt": "Wall Street Journal",
       "size": "w-56"
     },
     {
-      "id": 5,
+      "id": "5",
       "src": "http://localhost:3000/tl.svg",
       "alt": "Travel + Leisure",
       "size": "w-32"

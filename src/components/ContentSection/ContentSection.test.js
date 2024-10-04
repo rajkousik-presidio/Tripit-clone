@@ -17,11 +17,6 @@ describe("ContentSection Component", () => {
     jest.useFakeTimers(); // Enable Jest fake timers
   });
 
-  afterEach(() => {
-    jest.runOnlyPendingTimers(); // Run all pending timers to clean up
-    jest.useRealTimers(); // Restore real timers after each test
-  });
-
   it("should render the title and description", () => {
     render(<ContentSection {...props} />);
     expect(screen.getByText("Test Title")).toBeInTheDocument();

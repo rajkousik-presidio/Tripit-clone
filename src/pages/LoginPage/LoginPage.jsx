@@ -43,12 +43,9 @@ const LoginPage = () => {
       );
 
       if (response.data.length > 0) {
-        // Valid user found
         setErrorMessage("");
-        // Redirect to the home page
         navigate("/web");
       } else {
-        // Invalid user credentials
         setErrorMessage(
           "The email address and/or password you entered do not match our records. Passwords are cAsE sEnSiTiVe."
         );
