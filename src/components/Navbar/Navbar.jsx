@@ -12,6 +12,7 @@ import logo from "../../assets/logo-tripit.svg";
 import { HiBars3 } from "react-icons/hi2";
 import { MdArrowDropDown } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
+import { FaXTwitter } from "react-icons/fa6";
 
 const NavbarComponent = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -295,6 +296,9 @@ const NavbarComponent = () => {
             </Nav.Link>
             <Nav.Link className="text-2xl hover:text-primary">
               <FaFacebook />
+            </Nav.Link>
+            <Nav.Link className="text-2xl hover:text-primary">
+              <FaXTwitter />
             </Nav.Link>
             <Nav.Link className="text-2xl hover:text-primary">
               <FaLinkedinIn />
