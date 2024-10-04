@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 const ContentSection = ({
   image,
@@ -9,6 +9,16 @@ const ContentSection = ({
   author,
   quote,
 }) => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div
       className={`flex flex-col-reverse lg:flex-row ${
@@ -41,13 +51,17 @@ const ContentSection = ({
         )}
       </div>
 
-      {/* Image Content */}
+      {/* Image Content with Circular Skeleton Loader */}
       <div className="lg:w-1/2 w-full flex items-center justify-center">
-        <img
-          src={image}
-          alt="Content"
-          className="w-full max-w-[450px] h-auto rounded-lg object-cover"
-        />
+        {isLoading ? (
+          <div className="w-[300px] h-[300px] bg-gray-200 animate-pulse rounded-full"></div>
+        ) : (
+          <img
+            src={image}
+            alt="Content"
+            className="w-full max-w-[300px] h-auto rounded-full object-cover transition-opacity duration-500 ease-in opacity-100"
+          />
+        )}
       </div>
     </div>
   );
