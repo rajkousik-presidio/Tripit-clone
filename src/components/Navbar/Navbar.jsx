@@ -63,7 +63,6 @@ const NavbarComponent = () => {
       setActiveLink("Pricing");
     } else if (currentPath.includes("sap-concur")) {
       setActiveLink("SAP Concur");
-      console.log("Hello");
     } else if (currentPath.includes("account/login")) {
       setActiveLink("sign-in");
     } else if (currentPath.includes("account/create")) {
