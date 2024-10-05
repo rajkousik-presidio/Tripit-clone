@@ -1,70 +1,49 @@
-import React, { useState, useEffect } from "react";
+import React, { createContext, useContext } from "react";
+import ContentSectionItem from "./ContentSectionItem";
+import ContentSectionImage from "./ContentSectionImage";
 
-const ContentSection = ({
-  image,
-  title,
-  description,
-  link,
-  reverse,
-  author,
-  quote,
-}) => {
-  const [isLoading, setIsLoading] = useState(true);
+// Create a single context for managing allowed usage of components
+const ContentSectionContext = createContext();
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
+export default function ContentSection({ children }) {
+  return (
+    <ContentSectionContext.Provider value={{ insideContentSection: true }}>
+      <div>{children}</div>
+    </ContentSectionContext.Provider>
+  );
+}
 
-    return () => clearTimeout(timer);
-  }, []);
+// Wrapper to handle ContentSection.Item and enforce usage inside ContentSection
+function ContentSectionItemWrapper(props) {
+  const context = useContext(ContentSectionContext);
+
+  if (!context?.insideContentSection) {
+    console.error("ContentSection.Item must be used inside ContentSection.");
+    return null; // Prevent rendering if used incorrectly
+  }
 
   return (
-    <div
-      className={`flex flex-col-reverse lg:flex-row ${
-        reverse ? "lg:flex-row-reverse" : ""
-      } items-center justify-center lg:w-[90%] tablet:w-[75%] md:w-[63%] max-w-screen-xl mx-auto md:px-16 px-8 gap-16 mb-20`}
+    <ContentSectionContext.Provider
+      value={{ insideContentSection: true, insideContentSectionItem: true }}
     >
-      {/* Text Content */}
-      <div className="tablet:w-2/5 lg:w-1/2 w-full max-w-[450px] mb-4 p-6">
-        <h2 className="text-[28px] font-medium text-black mb-4">{title}</h2>
-        <p className="text-base font-light text-black mb-8 tracking-wider">
-          {description}
-        </p>
-        {link && (
-          <a
-            href="#"
-            className="text-primary font-medium underline mb-8 block underline-offset-4 decoration-primary hover:text-black"
-          >
-            {link}
-          </a>
-        )}
-        {quote && (
-          <p className="italic font-thin tracking-wide leading-7 text-gray-500 mb-2">
-            "{quote}"
-          </p>
-        )}
-        {author && (
-          <p className="font-thin tracking-wide italic text-gray-500 text-right mt-4">
-            - {author}
-          </p>
-        )}
-      </div>
-
-      {/* Image Content with Circular Skeleton Loader */}
-      <div className="lg:w-1/2 w-full flex items-center justify-center">
-        {isLoading ? (
-          <div className="w-[300px] h-[300px] bg-gray-200 animate-pulse rounded-full"></div>
-        ) : (
-          <img
-            src={image}
-            alt="Content"
-            className="w-full max-w-[300px] h-auto rounded-full object-cover transition-opacity duration-500 ease-in opacity-100"
-          />
-        )}
-      </div>
-    </div>
+      <ContentSectionItem {...props} />
+    </ContentSectionContext.Provider>
   );
-};
+}
 
-export default ContentSection;
+// Wrapper to handle ContentSection.Image and enforce usage inside ContentSection.Item
+function ContentSectionImageWrapper(props) {
+  const context = useContext(ContentSectionContext);
+
+  if (!context?.insideContentSectionItem) {
+    console.error(
+      "ContentSection.Image must be used inside ContentSection.Item."
+    );
+    return null; // Prevent rendering if used incorrectly
+  }
+
+  return <ContentSectionImage {...props} />;
+}
+
+ContentSection.Item = ContentSectionItemWrapper;
+ContentSection.Image = ContentSectionImageWrapper;

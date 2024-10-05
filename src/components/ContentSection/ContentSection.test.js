@@ -4,13 +4,13 @@ import React from "react";
 
 describe("ContentSection Component", () => {
   const props = {
-    image: "test-image.jpg",
     title: "Test Title",
     description: "Test description.",
     link: "Learn more",
     reverse: false,
     author: "Test Author",
     quote: "Test Quote",
+    image: "test-image.jpg",
   };
 
   beforeEach(() => {
@@ -18,13 +18,39 @@ describe("ContentSection Component", () => {
   });
 
   it("should render the title and description", () => {
-    render(<ContentSection {...props} />);
+    render(
+      <ContentSection>
+        <ContentSection.Item
+          title={props.title}
+          description={props.description}
+          link={props.link}
+          reverse={props.reverse}
+          author={props.author}
+          quote={props.quote}
+        >
+          <ContentSection.Image image={props.image} />
+        </ContentSection.Item>
+      </ContentSection>
+    );
     expect(screen.getByText("Test Title")).toBeInTheDocument();
     expect(screen.getByText("Test description.")).toBeInTheDocument();
   });
 
   it("should render the image after loading state", () => {
-    render(<ContentSection {...props} />);
+    render(
+      <ContentSection>
+        <ContentSection.Item
+          title={props.title}
+          description={props.description}
+          link={props.link}
+          reverse={props.reverse}
+          author={props.author}
+          quote={props.quote}
+        >
+          <ContentSection.Image image={props.image} />
+        </ContentSection.Item>
+      </ContentSection>
+    );
 
     act(() => {
       jest.advanceTimersByTime(1000);
@@ -36,7 +62,20 @@ describe("ContentSection Component", () => {
   });
 
   it("should render the author and quote if provided", () => {
-    render(<ContentSection {...props} />);
+    render(
+      <ContentSection>
+        <ContentSection.Item
+          title={props.title}
+          description={props.description}
+          link={props.link}
+          reverse={props.reverse}
+          author={props.author}
+          quote={props.quote}
+        >
+          <ContentSection.Image image={props.image} />
+        </ContentSection.Item>
+      </ContentSection>
+    );
     expect(screen.getByText("- Test Author")).toBeInTheDocument();
     expect(screen.getByText('"Test Quote"')).toBeInTheDocument();
   });
