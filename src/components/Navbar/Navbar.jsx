@@ -13,13 +13,28 @@ import { HiBars3 } from "react-icons/hi2";
 import { MdArrowDropDown } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import { FaXTwitter } from "react-icons/fa6";
+import axiosInstance from "../../utils/axiosConfig";
 
 const NavbarComponent = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isOverlayVisible, setIsOverlayVisible] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [activeLink, setActiveLink] = useState("");
+  const [navLinks, setNavLinks] = useState([]);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchNavLinks = async () => {
+      try {
+        const response = await axiosInstance.get("/navLinks");
+        setNavLinks(response.data);
+      } catch (error) {
+        console.error("Error fetching navigation links:", error);
+      }
+    };
+
+    fetchNavLinks();
+  }, []);
 
   const toggleSidebar = () => {
     if (!isOpen) {
@@ -43,22 +58,22 @@ const NavbarComponent = () => {
   };
 
   useEffect(() => {
-    // Update active link based on the current pathname
     const currentPath = location.pathname;
     if (currentPath.includes("pricing")) {
-      setActiveLink("pricing");
+      setActiveLink("Pricing");
     } else if (currentPath.includes("sap-concur")) {
-      setActiveLink("SAP-concur");
+      setActiveLink("SAP Concur");
+      console.log("Hello");
     } else if (currentPath.includes("account/login")) {
       setActiveLink("sign-in");
     } else if (currentPath.includes("account/create")) {
       setActiveLink("sign-up");
     } else if (currentPath.includes("web")) {
-      setActiveLink("tripit");
+      setActiveLink("TripIt");
     } else {
       setActiveLink("");
     }
-  }, [location]);
+  }, [location, activeLink]);
 
   const handleLinkClick = (link) => {
     setActiveLink(link);
@@ -69,6 +84,7 @@ const NavbarComponent = () => {
   };
 
   const handlePageNavigation = (link) => {
+    console.log(link);
     if (link === "sign-in") navigate("/account/login");
     else if (link === "sign-up") navigate("/account/create");
     else if (link === "pricing") navigate("/web/pro/pricing");
@@ -94,7 +110,6 @@ const NavbarComponent = () => {
 
   return (
     <>
-      {/* Navbar */}
       <Navbar
         fixed="top"
         className="px-5 sm:px-10 md:px-20 py-3 flex justify-between lg:justify-around items-center bg-white fixed top-0 w-full z-50 shadow-md lg:shadow-none"
@@ -117,38 +132,27 @@ const NavbarComponent = () => {
             id="navbar-nav"
             className="flex items-center tablet:gap-4 xl:gap-8 gap-4"
           >
-            {[
-              "tripit",
-              "tripit-pro",
-              "how-it-works",
-              "pricing",
-              "SAP-concur",
-              "sign-in",
-            ].map((link) => (
+            {navLinks.map((link) => (
               <Nav.Link
-                key={link}
-                // href={`#${link}`}
+                key={link.label}
                 onClick={() => {
-                  if (link === "sign-in") {
+                  if (link.label === "Sign In") {
                     handlePageNavigation("sign-in");
-                  } else if (link === "pricing") {
+                  } else if (link.label === "Pricing") {
                     handlePageNavigation("pricing");
-                  } else if (link === "SAP-concur") {
+                  } else if (link.label === "SAP Concur") {
                     handlePageNavigation("SAP-concur");
-                  } else if (link === "tripit") {
+                  } else if (link.label === "TripIt") {
                     handlePageNavigation("/");
                   } else {
-                    handleLinkClick(link);
+                    handleLinkClick(link.label);
                   }
                 }}
                 className={`text-black tracking-wide text-[0.9rem] px-1 font-medium hover:text-primary ${
-                  activeLink === link ? "border-b-2 border-b-primary" : ""
+                  activeLink === link.label ? "border-b-2 border-b-primary" : ""
                 }`}
               >
-                {link
-                  .split("-")
-                  .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-                  .join(" ")}
+                {link.label}
               </Nav.Link>
             ))}
             <Button
@@ -197,7 +201,6 @@ const NavbarComponent = () => {
         </Navbar.Collapse>
       </Navbar>
 
-      {/* Overlay for Mobile View */}
       {isOverlayVisible && (
         <div
           className={`fixed inset-0 bg-white transition-opacity duration-300 z-40 ${
@@ -207,7 +210,6 @@ const NavbarComponent = () => {
         ></div>
       )}
 
-      {/* Sidebar for Mobile View */}
       <div
         className={`fixed top-0 right-0 w-72 h-full bg-white shadow-md p-7 z-50 flex flex-col transform transition-transform duration-300 ease-in-out ${
           isOpen ? "translate-x-0" : "translate-x-full"
@@ -220,26 +222,20 @@ const NavbarComponent = () => {
           <IoIosClose className="text-primary text-5xl" />
         </button>
         <Nav className="flex flex-col space-y-4 mt-12">
-          {["tripit", "pro", "how-it-works", "pricing", "sap-concur"].map(
-            (link, index) => (
-              <Nav.Link
-                key={index}
-                href={`#${link}`}
-                onClick={() => handleLinkClick(link)}
-                className={`text-black text-lg tracking-wide font-medium hover:text-primary ${
-                  activeLink === link
-                    ? "underline underline-offset-8 decoration-primary decoration-5"
-                    : ""
-                }`}
-              >
-                {link
-                  .split("-")
-                  .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-                  .join(" ")}
-              </Nav.Link>
-            )
-          )}
-          {/* Rest of the sidebar content */}
+          {navLinks.map((link, index) => (
+            <Nav.Link
+              key={index}
+              href={`#${link}`}
+              onClick={() => handleLinkClick(link.label)}
+              className={`text-black text-lg tracking-wide font-medium hover:text-primary ${
+                activeLink === link
+                  ? "underline underline-offset-8 decoration-primary decoration-5"
+                  : ""
+              }`}
+            >
+              {link.label}
+            </Nav.Link>
+          ))}
           <Button
             variant="primary"
             className="mt-4 rounded-sm bg-white text-primary border-2 border-primary px-4 py-2 text-lg tracking-wide font-medium"

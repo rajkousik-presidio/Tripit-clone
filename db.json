@@ -23,7 +23,6 @@
       "homeCity": "bangalore"
     },
     {
-      "id": "5854",
       "email": "asasa@g.c",
       "password": "as1212121",
       "homeCity": "12"
@@ -160,5 +159,43 @@
       "Tracks your reward programs",
       "Upload 25 documents per trip"
     ]
-  }
+  },
+  "navLinks": [
+    {
+      "id": "1",
+      "label": "TripIt",
+      "link": "/web",
+      "key": "tripit"
+    },
+    {
+      "id": "2",
+      "label": "TripIt Pro",
+      "link": "/web/pro",
+      "key": "tripit-pro"
+    },
+    {
+      "id": "3",
+      "label": "How It Works",
+      "link": "/web/how-it-works",
+      "key": "how-it-works"
+    },
+    {
+      "id": "4",
+      "label": "Pricing",
+      "link": "/web/pro/pricing",
+      "key": "pricing"
+    },
+    {
+      "id": "5",
+      "label": "SAP Concur",
+      "link": "/web/pro/sap-concur",
+      "key": "SAP-concur"
+    },
+    {
+      "id": "6",
+      "label": "Sign In",
+      "link": "/account/login",
+      "key": "sign-in"
+    }
+  ]
 }
