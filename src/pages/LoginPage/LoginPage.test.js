@@ -55,19 +55,15 @@ describe("LoginPage", () => {
       </BrowserRouter>
     );
 
-    // Find input fields by label and type invalid email and valid password
     const emailInput = screen.getByLabelText("Email Address");
     const passwordInput = screen.getByLabelText("Password");
     const signInButton = screen.getByRole("button", { name: /sign in/i });
 
-    // Type in the email and password
     await userEvent.type(emailInput, "sa");
     await userEvent.type(passwordInput, "password123");
 
-    // Click on the Sign In button
     fireEvent.click(signInButton);
 
-    // Check for the expected error message
     expect(
       await screen.findByText("Please enter a valid email address.")
     ).toBeInTheDocument();

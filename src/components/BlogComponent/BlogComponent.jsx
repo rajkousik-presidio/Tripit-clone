@@ -52,7 +52,6 @@ const BlogComponent = () => {
                 alt={post.title}
                 className="w-full h-auto object-contain rounded-lg shadow-lg"
               />
-              {console.log(post.image)}
               <div className="w-full mt-8">
                 <h4 className="text-xl font-medium text-black mb-4 text-left tracking-wide">
                   {post.title}
