@@ -54,12 +54,12 @@ const ContentSection = ({
       {/* Image Content with Circular Skeleton Loader */}
       <div className="lg:w-1/2 w-full flex items-center justify-center">
         {isLoading ? (
-          <div className="w-[450px] h-[450px] bg-gray-200 animate-pulse rounded-full"></div>
+          <div className="w-[300px] h-[300px] bg-gray-200 animate-pulse rounded-full"></div>
         ) : (
           <img
             src={image}
             alt="Content"
-            className="w-full max-w-[450px] h-[450px] object-cover transition-opacity duration-500 ease-in opacity-100"
+            className="w-full max-w-[300px] h-auto rounded-full object-cover transition-opacity duration-500 ease-in opacity-100"
           />
         )}
       </div>
